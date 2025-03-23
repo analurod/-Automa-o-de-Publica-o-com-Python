@@ -4,6 +4,7 @@ import pyautogui as pa
 import keyboard as k
 import time as t
 import tkinter as tk
+import os
 
 
 def exibir_popup():
@@ -87,7 +88,7 @@ def encontrar_e_clicar(arquivo):
         print(f"{arquivo} encontrado e clicado. {x},{y}")
         return True
     else:
-        print("[ERRO] {arquivo} não encontrado!")
+        print(f"[ERRO] {arquivo} não encontrado!")
         return False
 
 
@@ -101,25 +102,25 @@ def entrar_marketplace():
     # Entrar no Marketplace
     t.sleep(2)  # Aguarda carregamento da página
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface\marketplace.png")
+        r"C:/caminho/para/imagens/marketplace.png")  # Alterar caminho
 
 
 def criar_classficado(i, caminho, titulo, preco, cores, marca, descricao, locais, retirada, entrega):
     # Criar Classificado
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface\novo.png")
+        r"C:/caminho/para/imagens/novo.png")  # Alterar caminho
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface\item.png")
+        r"C:/caminho/para/imagens/item.png")  # Alterar caminho
     t.sleep(10)
 
     """Adicionar Fotos"""
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface\fotos.png")
+        r"C:/caminho/para/imagens/fotos.png")  # Alterar caminho
 
     # Clica na barra de pesquisa
     clicar_em(497, 530)
 
-    img = caminho + '\imagem' + str(i)
+    img = caminho + '/imagem' + str(i)
 
     t.sleep(3)
     pa.write(img, interval=0.25)
@@ -141,14 +142,14 @@ def criar_classficado(i, caminho, titulo, preco, cores, marca, descricao, locais
     pa.press('tab')
     pa.press('enter')
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface\moveis.png")
+        r"C:/caminho/para/imagens/moveis.png")  # Alterar caminho
 
     """Adicionar Condição"""
     t.sleep(1)
     pa.press('tab')
     pa.press('enter')
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface\cond_novo.png")
+        r"C:/caminho/para/imagens/cond_novo.png")  # Alterar caminho
 
     """Adicionar cor"""
     t.sleep(1)
@@ -200,21 +201,23 @@ def criar_classficado(i, caminho, titulo, preco, cores, marca, descricao, locais
         pa.press('tab', 12, 1)
 
 
-# Variáveis Gerais
-caminho = r"C:\Users\analu\OneDrive\Imagens\Beliches"
-titulo = 'Beliches e Treliches de Madeira - A partir de R$ 350,00'
-preco = '350'
-cores = 'Marrom; Imbuia; Preta; Mel; Marfim; Mel; Natural'
-marca = 'Mix Móveis Manu'
-descricao = '🌟 Qualidade e Preço Justo em Móveis de Madeira 🌟\n\n🛌 Beliche Reta Madeira Maciça de Eucalipto (Natural) - R$ 350,00\n\n🛏 Beliche Reta/Torneada Madeira Maciça de Eucalipto - R$ 400,00\n\n🛌 Treliche Madeira Maciça de Eucalipto - R$ 520,00\n\n🛏 Colchões a partir de R$ 200,00*\n\n🛌 Cama de Casal Madeira Maciça de Eucalipto - R$ 382,00\n\n\n\n📞 Contato: (12) 99774-2986 (Ana Luisa)\nLink direto: https://wa.me/5512997742986\n\n💳 Pagamento: Somente na entrega. Aceitamos dinheiro, PIX e cartão de crédito (até 12x com juros da maquininha).\n\n🚚 Entrega: Pequena taxa de entrega. Consulte o frete para sua região!'
-locais = ['São Paulo', 'Suzano', 'Poá', 'Mogi das Cruzes', 'Guarulhos', 'Mauá', 'Santo André',
-          'São Bernardo do Campo', 'São Caetano', 'Diadema', 'City Bussocaba, Osasco', 'Guaruja', 'Bertioga', 'Caraguatatuba', 'Jacarei', 'São José dos Campos', 'Santa Branca']
+# Variáveis Gerais - Ajuste de Caminho
+caminho = r"C:/caminho/para/imagens"  # Alterar caminho
+titulo = 'Seu título personalizado aqui'
+preco = 'Valor do preço'
+cores = 'Cores disponíveis'
+marca = 'Sua marca'
+descricao = 'Descrição detalhada do produto'
+
+# Lista de locais de publicação
+locais = ['Lista de cidades']
+
+# Configurações adicionais
 retirada = True
 entrega = True
-
-iniciar_em = 17
-maximo_post = 20
-tempo_espera = 20
+iniciar_em = 0
+maximo_post = 10
+tempo_espera = 20  # tempo entre cada publicação
 
 entrar_marketplace()
 
@@ -224,7 +227,7 @@ for i in range(iniciar_em, maximo_post):
 
     # Publicar
     encontrar_e_clicar(
-        r"C:\Users\analu\OneDrive\Desktop\Automação de Post\controle_interface.png")
+        r"C:/caminho/para/imagens/publicar.png")  # Alterar caminho
 
     """Aguardar antes de postar o próximo"""
     t.sleep(tempo_espera)
