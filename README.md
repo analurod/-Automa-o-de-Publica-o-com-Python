@@ -30,7 +30,7 @@ A motivação para o desenvolvimento deste projeto surgiu a partir de uma necess
 
 ## 📂 Estrutura do Projeto
 ```
-Automacao_Facebook/
+Automacao-com-python/
 │
 ├─ controle_interface/
 │   ├─ marketplace.png
